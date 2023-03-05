@@ -1,0 +1,221 @@
+ // To calculate the sum of n natural numbers. 
+public static int Sum(int n){
+        if(n==1){
+            return 1;
+        }
+        else{
+            return n+Sum(n-1);
+        }
+    }
+    
+    // Printing n natural numbers.
+    public static void printNum(int n){
+        if(n==1){
+            System.out.print(n+" ");
+        }
+        else{
+            printNum(n-1);
+            System.out.print(n+" ");
+
+        }
+    }
+    
+    // Calculating factorial of n.
+    public static int fact(int n){
+        if(n==1 || n==0){
+            return 1;
+        }
+        else{
+            return n*fact(n-1);
+        }
+    }
+    
+    // Calculating the nth term of Fibonacci Series.
+    public static int fibo(int n){
+        if(n==1){
+           return 0;
+        }
+        else if(n==2){
+            return 1;
+        }
+        else {
+            return fibo(n-1)+fibo(n-2);
+        }
+    }
+    
+    // Calculating the sum of digits of number n.
+    public static int digiSum(int n){
+        if(n>0){
+            return n%10+digiSum(n/10);
+        }
+        else {
+            return 0;
+        }
+    }
+
+    // Calculating the exponential form p^q.
+     public static int exp(int p, int q){
+        if(q==1){
+            return p;
+        }
+        else if(q==0){
+            return 1;
+        }
+        else {
+            return p*exp(p, q-1);
+        }
+    }
+    
+    // Calculating and printing k multiples of num. That is if k=4, num=5, Output-5,10,15,20.
+    public static void multiples(int num, int k){
+        if(k==1){
+            System.out.print(num);
+        }
+        else{
+            multiples(num, k-1);
+            System.out.print(", "+num*k);
+        }
+    }
+    
+    // Calculating the alternate sum till limit n. That is, if n=5. Output: 1-2+3-4+5=3.
+    public static int alternateSum(int n){
+        if(n==1){
+            return 1;
+        }
+        if(n%2==0){
+            return alternateSum(n-1)-n;
+        }
+        else{
+            return alternateSum(n-1)+n;
+        }
+    }
+
+    // Calculating the greatest common divisor of two numbers x and y.
+     public static int gcd(int x, int y){
+        if(y==0){
+            return x;
+        }
+        if(x%y==0){
+            return y;
+        }
+        else {
+            int rem=x%y;
+            x=y;
+            y=rem;
+            return gcd(x, y);
+        }
+    }
+    
+    // Printing the elements of 1-D Array.
+    public static void printArr(int[] arr, int index){
+        if(index==0){
+            System.out.print(" "+arr[index]);
+        }
+        else{
+            printArr(arr, index-1);
+            System.out.print(" "+arr[index]);
+        }
+    }
+    
+    // Finding the maximum element in the array.
+    public static int maxElement(int[] arr, int index){
+        if(index==0){
+            return arr[index];
+        }
+        return Math.max(arr[index], maxElement(arr, index-1));
+    }
+    
+    // Calclating the sum of elements in  array.
+    public static int arraySum(int[] arr, int index){
+        if(index==0){
+            return arr[index];
+        }
+        return arr[index]+arraySum(arr, index-1);
+    }
+    
+    // Finding the target element in array.
+    public static void findElement(int[]  arr, int index, int target){
+        if(index==0 && arr[index]==target){
+            System.out.println("Found at index : "+index);
+        }
+        else{
+            if(arr[index]==target){
+                System.out.println("Found at index : "+index);
+            }
+            else if(index>0){
+                findElement(arr, index-1,target);
+            }
+            else{
+                System.out.println(-1);
+            }
+        }
+    }
+    
+    // Returning the string with removed target character e.g.'d' from the given string.
+    public static String removeChar(String strg, int index){
+        if(index<0){
+            return "";
+        }
+        else{
+            if(strg.charAt(index)!='d'){
+                return removeChar(strg, index-1)+strg.charAt(index);
+            }
+            else{
+                return removeChar(strg, index-1);
+            }
+        }
+    }
+
+    // Reversing the string.
+    public static String revStrg(String strg, int index){
+        if(index==0){
+            return strg.charAt(index)+"";
+        }
+        else{
+            return strg.charAt(index)+revStrg(strg, index-1);
+        }
+    }
+    
+    // Checking whether a string is palindrome or not. Ex."WOW"-is palindrome because after reversing - "WOW"
+    public static boolean palindrome(String strg, int start, int end){
+        if(end<0){
+            return true;
+        }
+        else{
+            return strg.charAt(start)==strg.charAt(end) && palindrome(strg, start+1, end-1);
+        }
+    }
+    // Finding and printing the indices of target number present in array once or multiple times.
+    public static void findAllIndices(int[] arr, int target, int index){
+        if(index<0){
+            return;
+        }
+        else{
+            findAllIndices(arr, target, index-1);
+            if(arr[index]==target){
+                System.out.print(index+", ");
+            }
+        }
+    }
+    
+    // Returning an ArrayList containing the indices of target element in array.
+    public static ArrayList indexList(int[] arr, int target, int index){
+        if(index<0){
+            return new ArrayList<>();
+        }
+        else{
+            ArrayList<Integer> al=indexList(arr, target, index-1);
+            if(arr[index]==target){
+                al.add(index);
+            }
+            return al;
+        }
+    }
+    
+   
+    
+    
+    
+    
+    
+    
