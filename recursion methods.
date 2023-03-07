@@ -212,9 +212,38 @@ public static int Sum(int n){
         }
     }
     
+   // Calculating and printing subsequences or subsets of a given string.
    
-    
-    
+        //    Method 1. Returning subsets in array list.
+    public static ArrayList<String> subsequences(String strg){
+        ArrayList<String> al = new ArrayList<>();
+        if(strg.length()==0) {
+            al.add("");
+            return al;
+        }
+        else {
+            ArrayList<String> sal=subsequences(strg.substring(1));
+            char current=strg.charAt(0);
+            for(String s:sal){
+                al.add(s);
+                al.add(current+s);
+            }
+            return al;
+            }
+        }
+        //        Method 2.
+
+    public static void printSubsequences(String strg, String curr){
+        if(strg.length()==0){
+            System.out.print(curr+" ");
+        }
+        else {
+            char current = strg.charAt(0);
+            String remStrg = strg.substring(1);
+            printSubsequences(remStrg, curr + current);
+            printSubsequences(remStrg,curr);
+        }
+    }
     
     
     
